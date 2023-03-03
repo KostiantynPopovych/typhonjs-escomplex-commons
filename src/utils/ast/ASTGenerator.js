@@ -37,7 +37,14 @@ export default class ASTGenerator
       }
       else if (typeof node === 'object')
       {
-         state.generator[node.type](node, state);
+         try
+         {
+            state.generator[node.type](node, state);
+         }
+         catch (err) 
+         {
+            console.log(`Handling of node type ${  node.type  } not implemented yet.`);
+         }
       }
       else
       {
@@ -75,7 +82,14 @@ export default class ASTGenerator
          }
          else if (typeof node === 'object')
          {
-            state.generator[node.type](node, state);
+            try
+            {
+               state.generator[node.type](node, state);
+            }
+            catch (err) 
+            {
+               console.log(`Handling of node type ${  node.type  } not implemented yet.`);
+            }
          }
          else
          {
